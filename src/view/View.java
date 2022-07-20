@@ -219,12 +219,14 @@ public class View {
 	public void musicRecPage() {
 		System.out.println("노래 추천 메뉴입니다.");
 	}
+	
 	public void musicPlayer() {
         System.out.println("1:00  ─|──────────── 5:57");
         System.out.println("   ⇄   ◁◁   II   ▷▷   ↻   ");
         System.out.println("Volume: ■ ■ ■ ■ ■ □ □ □");
         System.out.println();
     }
+	
 	public void musicInfo(MMusicVO vo) {
 		System.out.println("\n"
 				+ "─♪───────────────────────");
