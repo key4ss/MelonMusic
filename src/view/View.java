@@ -114,39 +114,39 @@ public class View {
 		}
 	}
 
-	public void loginPage() {
+	public void loginPage() { //로그인 페이지 안내 출력
 		System.out.println("로그인 페이지입니다.");
 	}
 
-	public void loginGuide() {
+	public void loginGuide() { //로그인 페이지에서 아이디와 비밀번호 입력을 위한 문구 출력
 		System.out.println("아이디와 비밀번호를 차례대로 입력해주세요.");
 	}
 
-	public void writeId() {
+	public void writeId() { // 아이디 입력을 위한 문구 출력
 		System.out.println("아이디를 입력해주세요.");
 	}
 
-	public void writePw() {
+	public void writePw() { // 비밀번호 입력을 위한 문구 출력
 		System.out.println("비밀번호를 입력해주세요.");
 	}
 
-	public void checkLogin() {
+	public void checkLogin() { // 아이디 또는 비밀번호가 올바르지 않은 경우 문구 출력
 		System.out.println("아이디 또는 비밀번호를 확인해주세요.");
 	}
 
-	public void signUpPage() {
+	public void signUpPage() { // 회원 가입 페이지 안내 출력
 		System.out.println("회원가입 메뉴입니다.");
 	}
 
-	public void signUpGuide() {
+	public void signUpGuide() { // 회원 가입 페이지에서 아이디, 비밀번호, 이름을 입력받기 위한 문구 출력
 		System.out.println("아이디, 비밀번호, 이름을 차례대로 입력해주세요.");
 	}
 
-	public void writeName() {
+	public void writeName() { // 이름을 입력 받는 문구 출력
 		System.out.println("이름을 입력해주세요.");
 	}
 
-	public void endUser() {
+	public void endUser() { // UserIndex 종료시 문구 출력
 		System.out.println("잠시 후 프로그램이 종료 됩니다.");
 		System.out.println("이용해주셔서 감사합니다.");
 		for (int i = 0; i < 5; i++) {
@@ -160,16 +160,16 @@ public class View {
 		}
 	}
 
-	public void noExistUser() {
+	public void noExistUser() { // 사용자 정보가 존재하지 않을 시 출력할 문구
 		System.out.println("사용자 정보가 존재하지 않아 시작화면으로 돌아갑니다.");
 	}
 
-	public void chartPage() {
+	public void chartPage() { // 노래 목록을 출력할 시에 나오는 문구
 		System.out.println("노래 목록을 조회합니다.");
 		System.out.println("======= Melon Top 100 =======");
 	}
 
-	public void musicChart(ArrayList<MMusicVO> datas) {
+	public void musicChart(ArrayList<MMusicVO> datas) { // 노래 목록을 출력할 양식
 		if (datas.size() == 0) { // 저장된 데이터가 없는 경우
 			System.out.println("정보가 존재하지 않습니다!");
 		} else {
@@ -181,29 +181,29 @@ public class View {
 		System.out.println();
 	}
 
-	public void searchMusicPage() {
+	public void searchMusicPage() { // 노래 검색 메뉴 안내 문구 출력
 		System.out.println("노래 검색 메뉴입니다.");
 	}
 
-	public void writeTA() {
+	public void writeTA() { // 노래 검색 메뉴 선택 시 검색 방법 택하는 문구 출력
 		System.out.println("노래를 검색할 방법을 선택해주세요.");
 		System.out.println("1. 제목");
 		System.out.println("2. 가수");
 	}
 
-	public void searchResult(String str) {
+	public void searchResult(String str) { // 특정 단어로 노래 검색 성공 시 결과 출력한는 메뉴
 		System.out.println(str+"로 검색한 결과입니다.");
 	}
 
-	public void noExistMusic() {
+	public void noExistMusic() { // 노래 정보가 존재하지 않을 시 출력하는 문구
 		System.out.println("노래 정보가 존재하지 않아 시작화면으로 돌아갑니다.");
 	}
 
-	public void choiceMusic() {
+	public void choiceMusic() { // 출력되는 리스트 중 선택하는 특정 값을 입력을 받기 위한 안내 문구
 		System.out.println("원하시는 노래의 번호를 입력해주세요.");
 	}
 
-	public void listenMusic() {
+	public void listenMusic() { // 노래를 선택하여 감상할 때 출력되는 문구
 		for (int i = 0; i < 3; i++) {
 			System.out.println(" ~ ♩ ♪ ♬ ♪ ♬ ♩ ♩ ♬ ♪ ~");
 			try {
@@ -216,18 +216,18 @@ public class View {
 		System.out.println();
 	}
 
-	public void musicRecPage() {
+	public void musicRecPage() { // 노래 추천 메뉴 안내 문구
 		System.out.println("노래 추천 메뉴입니다.");
 	}
 	
-	public void musicPlayer() {
+	public void musicPlayer() { // 음악 플레이어 모양
         System.out.println("1:00  ─|──────────── 5:57");
         System.out.println("   ⇄   ◁◁   II   ▷▷   ↻   ");
         System.out.println("Volume: ■ ■ ■ ■ ■ □ □ □");
         System.out.println();
     }
 	
-	public void musicInfo(MMusicVO vo) {
+	public void musicInfo(MMusicVO vo) { // 노래의 정보를 출력하는 문구
 		System.out.println("\n"
 				+ "─♪───────────────────────");
 		System.out.println(vo.getmTitle()+"\n"
@@ -235,7 +235,7 @@ public class View {
 		System.out.println("───────────────────────♪─"+"\n");
 	}
 
-	public void endMelon() {
+	public void endMelon() { //MelonIndex를 종료할때 나오는 문구
 		System.out.println("잠시 후 플레이어가 종료 됩니다.");
 		System.out.println("이용해주셔서 감사합니다.");
 		for (int i = 0; i < 5; i++) {
@@ -249,43 +249,43 @@ public class View {
 		}
 	}
 
-	public void showLastMusic() {
+	public void showLastMusic() { // 최근에 들은 노래 정보 메뉴 안내 문구
 		System.out.println("최근에 들은 노래 정보메뉴입니다.");
 	}
 
-	public void userDeletePage() {
+	public void userDeletePage() { // 회원탈퇴메뉴 안내 문구
 		System.out.println("회원탈퇴메뉴입니다.");
 	}
 
-	public void checkDelete() { // Upper로 대/소문자 구별없이 받음
+	public void checkDelete() { // 회원탈퇴시 확인 문구 이후 InputY/N에서 Upper로 대/소문자 구별없이 받음
 		System.out.println("정말로 탈퇴하시겠습니까? Y/N");
 	}
 
-	public void deleteSuc() {
+	public void deleteSuc() { // 회원탈퇴 성공시 출력 문구
 		System.out.println("회원탈퇴가 완료되었습니다.");
 	}
 
-	public void deleteFail() {
+	public void deleteFail() { // 회원탈퇴 실패시 출력 문구
 		System.out.println("회원탈퇴에 실패하셨습니다.");
 	}
 
-	public void endMyPage() {
+	public void endMyPage() { // MyPageIndex가 종료될때 나오는 문구
 		System.out.println("마이페이지가 종료 됩니다.");
 	}
 
-	public void loginSuc() {
+	public void loginSuc() { // 로그인 성공 문구
 		System.out.println("로그인 되었습니다.");
 	}
 
-	public void loginFail() {
+	public void loginFail() { // 로그인 실패 문구
 		System.out.println("로그인에 실패하셨습니다.");
 	}
 
-	public void memberSuc() {
+	public void memberSuc() { // 회원가입 성공 문구
 		System.out.println("회원가입이 완료되었습니다.");
 	}
 
-	public void memberFail() {
+	public void memberFail() { // 회원가입 실패 문구
 		System.out.println("회원가입에 실패하셨습니다.");
 	}
 
@@ -296,19 +296,19 @@ public class View {
 		return str2;
 	}
 
-	public void searchTitle() {
+	public void searchTitle() { // 노래 검색 시 곡명으로 검색 선택시 출력 문구
 		System.out.println("곡명으로 검색합니다.");
 	}
 
-	public void searchArtist() {
+	public void searchArtist() { // 노래 검색 시 가수명으로 검색 선택시 출력 문구
 		System.out.println("가수명으로 검색합니다.");
 	}
 
-	public void logOutSuc() {
+	public void logOutSuc() { // 로그아웃 성공 문구
 		System.out.println("로그아웃합니다.");
 	}
 
-	public void logOutFail() {
+	public void logOutFail() { // 로그아웃 실패 문구
 		System.out.println("로그아웃에 실패하였습니다!");
 	}
 }
