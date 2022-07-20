@@ -226,8 +226,11 @@ public class View {
         System.out.println();
     }
 	public void musicInfo(MMusicVO vo) {
+		System.out.println("\n"
+				+ "─♪───────────────────────");
 		System.out.println(vo.getmTitle()+"\n"
 				+vo.getmArtist()+"\t\t"+"♬:"+vo.getmHit());
+		System.out.println("───────────────────────♪─"+"\n");
 	}
 
 	public void endMelon() {
