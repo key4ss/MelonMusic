@@ -66,10 +66,11 @@ public class Controller {
 										if(mDAO.selectAll(mVo).size() == 0) { // 검색한 결과가 없다면 다시
 											continue;
 										}
-										view.musicPlayer();
 										view.choiceMusic(); // 원하는 노래 번호를 입력해주세요 출력
 										mVo.setmNum(mDAO.selectAll(mVo).get(view.inputInt()-1).getmNum());
 										if(mDAO.update(mVo)) { // 조회수 +1
+											view.musicInfo(mDAO.selectOne(mVo));
+											view.musicPlayer();
 											view.listenMusic(); // 듣는중
 											data.setuLastMusic(mVo.getmNum()); // 최근 들은 노래 정보를 사용자 입력값으로 set
 											uDAO.update(data);
@@ -88,10 +89,11 @@ public class Controller {
 										if(mDAO.selectAll(mVo).size() == 0) { // 검색한 결과가 없다면 다시
 											continue;
 										}
-										view.musicPlayer();
 										view.choiceMusic(); // 원하는 노래 번호를 입력해주세요 출력
 										mVo.setmNum(mDAO.selectAll(mVo).get(view.inputInt()-1).getmNum());
 										if(mDAO.update(mVo)) { // 조회수 +1
+											view.musicInfo(mDAO.selectOne(mVo));
+											view.musicPlayer();
 											view.listenMusic(); // 듣는중
 											data.setuLastMusic(mVo.getmNum()); // 최근 들은 노래 정보를 사용자 입력값으로 set
 											uDAO.update(data);
@@ -153,6 +155,7 @@ public class Controller {
 										view.checkDelete(); // 탈퇴하시겠습니까 Y/N 출력
 										String str=view.inputYN();
 										if(str.equals("Y")) { // Y 입력시
+											lDAO.delete(lVo);
 											uDAO.delete(data); // 삭제
 											view.deleteSuc();
 											break;

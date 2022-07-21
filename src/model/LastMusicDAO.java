@@ -11,7 +11,9 @@ public class LastMusicDAO {
 	PreparedStatement pstmt;
 	final String sql_insert = "INSERT INTO LASTMUSIC VALUES((SELECT NVL(MAX(LNUM),0) +1 FROM LASTMUSIC),?,?)";
 //	final String sql_selectAll = "SELECT * FROM (SELECT A.*,ROWNUM AS RNUM FROM (SELECT * FROM LASTMUSIC ORDER BY LNUM DESC) A WHERE ROWNUM<=5) WHERE RNUM>=1";
-	final String sql_join = "SELECT * FROM MMUSIC, LASTMUSIC WHERE LASTMUSIC.UNUM = ? AND MMUSIC.MNUM = LASTMUSIC.MNUM ORDER BY LNUM DESC";
+	final String sql_join = "SELECT * FROM (SELECT MAX(A.LNUM) B, A.MNUM FROM (SELECT * FROM LASTMUSIC WHERE UNUM = ?) A GROUP BY A.MNUM) A, "
+			+ "MMUSIC M WHERE A.MNUM=M.MNUM ORDER BY B DESC";
+	final String sql_delete = "DELETE FROM LASTMUSIC WHERE UNUM = ?";
 	
 	public boolean insert(LastMusicVO vo) {
 		conn = JDBCUtil.connect();
@@ -88,5 +90,23 @@ public class LastMusicDAO {
 			return null;
 		}
 		return list;
+	}
+	public boolean delete(LastMusicVO vo) {
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_delete);
+			pstmt.setInt(1, vo.getuNum());
+			int rs = pstmt.executeUpdate();
+			if(rs >= 1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return false;
 	}
 }
