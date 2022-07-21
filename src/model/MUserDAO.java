@@ -39,7 +39,7 @@ public class MUserDAO {
 		return false;
 	}
 
-	public MUserVO selectOne(MUserVO vo) { // vo에 무슨 값을 넘겨줄 지 확인할 것 pk라고 생각하고 진행
+	public MUserVO selectOne(MUserVO vo) { // pk값을 받아오면
 		conn = JDBCUtil.connect();
 		try {
 			pstmt = conn.prepareStatement(sql_selectOne);
@@ -47,14 +47,14 @@ public class MUserDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if(rs.next()) {
-				if(rs.getInt("UNUM") == vo.getuNum()) {
+				if(rs.getInt("UNUM") == vo.getuNum()) { // pk와 일치하는 데이터를 찾고
 					MUserVO data = new MUserVO();
 					data.setuId(rs.getString("USERID"));
 					data.setuPw(rs.getString("UPW"));
 					data.setuName(rs.getString("UNAME"));
 					data.setuLastMusic(rs.getInt("ULASTMUSIC"));
 					//				System.out.println("	로그 : user selectOne 실행 성공");
-					return data;
+					return data; // 해당 데이터 리턴
 				}
 			}else {
 				//				System.out.println("	로그 : user selectOne 실행 실패");
@@ -75,10 +75,10 @@ public class MUserDAO {
 		conn = JDBCUtil.connect();
 		try {
 			pstmt = conn.prepareStatement(sql_update);
-			pstmt.setInt(1, vo.getuLastMusic());
-			pstmt.setInt(2, vo.getuNum());
-			int res = pstmt.executeUpdate();
-			if(res>=1) {
+			pstmt.setInt(1, vo.getuLastMusic()); // 노래정보를 담아주고
+			pstmt.setInt(2, vo.getuNum()); // pk를 담아준 뒤에
+			int res = pstmt.executeUpdate(); // 업데이트 진행
+			if(res>=1) { // 진행이 1개이상 되었다면
 				//				System.out.println("	로그 : user update가 1개이상 진행됨");
 				return true;
 			}
@@ -98,10 +98,10 @@ public class MUserDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_login);
-			pstmt.setString(1, vo.getuId());
+			pstmt.setString(1, vo.getuId()); // 입력받은 아이디에 정보가 존재하는지
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString("UPW").equals(vo.getuPw())) {
+				if(rs.getString("UPW").equals(vo.getuPw())) { // 그 정보가 보내준 pw랑 일치하는지
 					MUserVO data=new MUserVO();
 					data.setuNum(rs.getInt("UNUM"));
 					data.setuId(rs.getString("USERID"));
@@ -109,7 +109,7 @@ public class MUserDAO {
 					data.setuName(rs.getString("UNAME"));
 					data.setuLastMusic(rs.getInt("ULASTMUSIC"));
 					System.out.println("로그: 로그인 성공!");
-					return data;
+					return data; // 일치하면 해당 데이터 값 담아줘서 리턴
 				}
 				//				System.out.println("	로그: 비밀번호 불일치로 로그인 실패...");
 				return null;
@@ -125,18 +125,18 @@ public class MUserDAO {
 		return null;
 	}
 
-	public boolean hasId(MUserVO vo) { // data 넘겨주면 pk로 해당 DB에 존재하는지 확인 t/f
-		//		selectOne으로 구현 불가능?
-		return false;
-	}
+//	public boolean hasId(MUserVO vo) { // data 넘겨주면 pk로 해당 DB에 존재하는지 확인 t/f
+//		//		selectOne으로 구현 불가능?
+//		return false;
+//	}
 
 	public boolean delete(MUserVO vo) { // pk 받아오면 pk로 삭제
 		conn = JDBCUtil.connect();
 		try {
 			pstmt = conn.prepareStatement(sql_delete);
-			pstmt.setInt(1, vo.getuNum());
-			int res = pstmt.executeUpdate();
-			if(res>=1) {
+			pstmt.setInt(1, vo.getuNum()); // 받아온 pk 값 넣어주고
+			int res = pstmt.executeUpdate(); // delete 실행
+			if(res>=1) { // 1개 이상 진행되었다면
 				//				System.out.println("	로그 : user delete가 1개이상 진행됨");
 				return true;
 			}

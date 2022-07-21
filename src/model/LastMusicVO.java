@@ -1,9 +1,9 @@
 package model;
 
 public class LastMusicVO {
-	private int lNum;
-	private int mNum;
-	private int uNum;
+	private int lNum; // 실행되었던 곡들에 대한 정보
+	private int mNum; // 어떤 음악을 들었는지를 알려주는 music의 pk정보가 담김
+	private int uNum; // 어떤 유저가 들었는지를 알려주는 user의 pk정보가 담김
 	public int getlNum() {
 		return lNum;
 	}

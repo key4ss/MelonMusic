@@ -1,10 +1,10 @@
 package model;
 
 public class MMusicVO {
-	private int mNum;
-	private String mTitle;
-	private String mArtist;
-	private int mHit;
+	private int mNum; // 음악 pk 1++;
+	private String mTitle; // 노래 제목
+	private String mArtist; // 가수 이름
+	private int mHit; // 들은 횟수
 	public int getmNum() {
 		return mNum;
 	}

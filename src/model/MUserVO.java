@@ -1,11 +1,11 @@
 package model;
 
 public class MUserVO {
-	private int uNum;
-	private String uId;
-	private String uPw;
-	private String uName;
-	private int uLastMusic;
+	private int uNum; // 유저 pk 1++
+	private String uId; // 유저 아이디
+	private String uPw; // 유저 패스워드
+	private String uName; // 유저 이름
+	private int uLastMusic; // 유저가 들은 마지막 곡에대한 pk
 	public int getuNum() {
 		return uNum;
 	}
