@@ -196,7 +196,7 @@ public class View {
 	}
 
 	public void noExistMusic() { // 노래 정보가 존재하지 않을 시 출력하는 문구
-		System.out.println("노래 정보가 존재하지 않아 시작화면으로 돌아갑니다.");
+		System.out.println("노래 정보가 존재하지 않아 이전화면으로 돌아갑니다.");
 	}
 
 	public void choiceMusic() { // 출력되는 리스트 중 선택하는 특정 값을 입력을 받기 위한 안내 문구

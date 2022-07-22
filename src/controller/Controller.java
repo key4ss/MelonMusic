@@ -117,9 +117,9 @@ public class Controller {
 								mVo.setmNum(data.getuLastMusic());
 								//								mDAO.randomSelectOne(v); // MUser uLastmusic 넘겨줌
 								mVo2 = mDAO.randomSelectOne(mVo);
-								view.musicInfo(mVo2); // MUser uLastmusic 넘겨주고 랜덤노래 데이터 출력
-								view.musicPlayer();
 								if(mDAO.update(mVo2)) { // 조회수 +1
+									view.musicInfo(mDAO.selectOne(mVo2)); // MUser uLastmusic 넘겨주고 랜덤노래 데이터 출력
+									view.musicPlayer();
 									view.listenMusic(); // 듣는중
 									data.setuLastMusic(mVo2.getmNum()); // 최근 들은 노래 정보를 사용자 입력값으로 set
 									uDAO.update(data);

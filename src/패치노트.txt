@@ -1,0 +1,38 @@
+﻿1.0.0
+프로그램 제작완료 (PDF 참고)
+
+2.0.0
+Model - LastMusicVO, DAO, 테이블 생성
+
+Controller - lDAO.insert, .selectAll 메서드 추가
+
+2.0.1
+View - musicPlayer 메서드 수정
+Controller - mVo, uVo, lVo 통일
+
+2.1.1
+Model - LastMusicDAO selectAll 주석처리
+		      sql_join 추가 
+		      lastFive 메서드 추가
+Controller - lDAO.selectAll 주석처리
+	   lDAO.lastFive 메서드 추가
+
+3.0.0
+Model - sql_join 수정
+            sql_delete 추가
+            delete 메서드 추가
+View - 설명 주석 추가
+          musicPlayer 메서드 수정
+Controller - view.musicInfo, .musicPlayer 위치 변경
+	   lDAO.delete 메서드 추가
+
+3.0.1
+Model - * VO 주석 추가
+	* DAO 주석 추가
+	MMusicDAO - sql_selectAll 수정
+		       sql_rand 수정
+	                  selectOne 메서드 수정
+
+3.0.2
+View - noExistMusic() 수정
+Controller - 마이페이지 메서드 위치 수정
